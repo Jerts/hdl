@@ -8,17 +8,17 @@ module sum_cin (
 	 reg CI;
 	 
     always @(*) begin
-			 //Invertir las entradas
-			 A = ~a;
-			 B = ~b;
-			 CI = ~ci;
+		//Invertir las entradas
+		A = ~a;
+		B = ~b;
+		CI = ~ci;
 			 
-			 //Lógica común
-			 suma_aux=A+B+CI;
+		//Lógica común
+		suma_aux=A+B+CI;
 			 
-			 //Invertir salidas
-			 suma=~suma_aux;
-//		suma = a + b + ci;
+		//Invertir salidas
+		suma=~suma_aux;
+//suma = a + b + ci;
     end
 
 endmodule
