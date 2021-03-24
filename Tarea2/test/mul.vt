@@ -1,0 +1,49 @@
+`timescale 1 ns/ 100 ps
+module mul_vlg_tst();
+    // constants                                           
+
+    // test vector input registers
+    reg [1:0] a;
+    reg [1:0] b;
+    // wires                                               
+    wire [2:0] mult;
+
+    // assign statements (if any)                          
+    mul i1 (
+    // port map - connection between master ports and signals/registers   
+        .a(a),
+        .b(b),
+        .mult(mult)
+    );
+
+    initial                                                
+    begin                                                  
+
+    $display("Running testbench");                       
+    end
+
+    always                                                                
+    begin                                                  
+        #50
+        a=2'b11;
+        b=2'b11;
+
+        #50
+        a=2'b10;
+        b=2'b11;
+
+        #50
+        a=2'b01;
+        b=2'b11;
+
+        #50
+        a=2'b01;
+        b=2'b10;
+
+        #50
+        a=2'b01;
+        b=2'b01;
+                                        
+    end   
+
+endmodule

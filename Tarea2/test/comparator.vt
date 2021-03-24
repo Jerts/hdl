@@ -1,0 +1,52 @@
+`timescale 1 ns/ 100 ps
+module comparator_vlg_tst();
+    // constants                                           
+
+    // test vector input registers
+    reg [1:0] a;
+    reg [1:0] b;
+    // wires                                               
+    wire comp;
+
+    // assign statements (if any)                          
+    comparator i1 (
+    // port map - connection between master ports and signals/registers   
+        .a(a),
+        .b(b),
+        .comp(comp)
+    );
+
+    initial                                                
+    begin                                                  
+
+    $display("Running testbench");                       
+    end
+
+    always                                                                
+    begin                                                  
+        #50
+        a=2'b11;
+        b=2'b11;
+
+        #50
+        a=2'b10;
+        b=2'b11;
+                
+        #50
+        a=2'b01;
+        b=2'b11;
+
+        #50
+        a=2'b10;
+        b=2'b01;
+
+        #50
+        a=2'b00;
+        b=2'b01;
+
+        #50
+        a=2'b00;
+        b=2'b00;       
+    end   
+
+endmodule

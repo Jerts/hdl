@@ -1,0 +1,38 @@
+`timescale 1 ns/ 100 ps
+module encoder_vlg_tst();
+    // constants                                           
+
+    // test vector input registers
+    reg [3:0] a;
+    // wires                                               
+    wire [1:0]salida;
+
+    // assign statements (if any)                          
+    encoder i1 (
+    // port map - connection between master ports and signals/registers   
+        .a(a),
+        .salida(salida),
+    );
+
+    initial                                                
+    begin                                                  
+
+        $display("Running testbench"); 
+
+    end
+
+    always                                                                
+    begin                                                  
+        #50
+        a=4'b0001;
+        #50
+        a=4'b0010;
+        #50
+        a=4'b0100;
+        #50
+        a=4'b1000;
+        #50
+        a=4'b1001;          
+    end   
+
+endmodule
