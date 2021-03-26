@@ -11,7 +11,7 @@ module decoder_vlg_tst();
     decoder i1 (
     // port map - connection between master ports and signals/registers   
         .a(a),
-        .salida(salida),
+        .salida(salida)
     );
 
     initial                                                

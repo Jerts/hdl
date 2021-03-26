@@ -1,11 +1,11 @@
 module mul (
-    input [1:0]a,
-    input [1:0]b,
-    output reg [2:0]mult
+    input [7:0]a,
+    input [7:0]b,
+    output reg [7:0]mult
 );
-    reg [1:0]A;
-    reg [1:0]B;
-    reg [2:0]mult_aux ;
+    reg [7:0]A;
+    reg [7:0]B;
+    reg [7:0]mult_aux ;
 
     always @(*) begin
         //Inversion de entradas

@@ -11,7 +11,7 @@ module encoder_vlg_tst();
     encoder i1 (
     // port map - connection between master ports and signals/registers   
         .a(a),
-        .salida(salida),
+        .salida(salida)
     );
 
     initial                                                
@@ -24,15 +24,15 @@ module encoder_vlg_tst();
     always                                                                
     begin                                                  
         #50
-        a=4'b0001;
+        a=4'b1110;
         #50
-        a=4'b0010;
+        a=4'b1101;
         #50
-        a=4'b0100;
+        a=4'b1011;
         #50
-        a=4'b1000;
+        a=4'b0111;
         #50
-        a=4'b1001;          
+        a=4'b0110;          
     end   
 
 endmodule
