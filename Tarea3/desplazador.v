@@ -1,7 +1,7 @@
 module desplazador (
     input [7:0]entrada,
     input [1:0]sel,
-    output reg [7:0]salida,
+    output reg [7:0]salida
 );
     reg [7:0]en_aux;
     reg [1:0]sel_aux;

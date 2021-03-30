@@ -1,0 +1,28 @@
+`timescale 1 ns/ 100 ps
+module buffer_vlg_tst ();
+
+    reg a, enable;
+    
+    wire f ;
+  
+    buffer_tri i1(
+        .a(a),
+        .enable(enable),
+        .f(f)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+    end
+
+    always begin
+        #50
+        a=1'b0;
+        enable=1'b1;
+        #50
+        a=1'b0;
+        enable=1'b0;
+        
+
+    end
+endmodule

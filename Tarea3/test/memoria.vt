@@ -1,0 +1,28 @@
+`timescale 1 ns/ 100 ps
+module memoria_vlg_tst ();
+
+    reg [1:0]dir ;
+    
+    wire [7:0]salida ;
+  
+    memoria i1(
+        .dir(dir),
+        .salida(salida)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+    end
+
+    always begin
+        #50
+        dir=2'b11;
+        #50
+        dir=2'b10;
+        #50
+        dir=2'b01;
+        #50
+        dir=2'b00;
+
+    end
+endmodule

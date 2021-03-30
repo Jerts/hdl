@@ -1,0 +1,45 @@
+`timescale 1 ns/ 100 ps
+module multiplexor_if_vlg_tst();
+    // constants                                           
+
+    // test vector input registers
+    reg [1:0] sel;
+    reg a,b,c,d;
+    // wires                                               
+    wire salida;
+
+    // assign statements (if any)                          
+    multiplexor_if i1 (
+    // port map - connection between master ports and signals/registers   
+        .sel(sel),
+        .a(a),
+        .b(b),
+        .c(c),
+        .d(d),
+        .salida(salida)
+    );
+
+    initial                                                
+    begin                                                  
+
+        $display("Running testbench"); 
+
+    end
+
+    always                                                                
+    begin       
+        #50                                           
+        {a,b,c,d}=4'b0110;
+        sel=2'b11;
+        #50
+        {a,b,c,d}=4'b0110;
+        sel=2'b10;
+        #50
+        {a,b,c,d}=4'b0110;
+        sel=2'b01;
+        #50
+        {a,b,c,d}=4'b0110;
+        sel=2'b00;    
+    end   
+
+endmodule

@@ -1,0 +1,31 @@
+`timescale 1 ns/ 100 ps
+module desplazador_vlg_tst ();
+
+    reg [7:0]entrada ;
+    reg [1:0]sel ;
+
+    wire [7:0]salida ;
+
+    desplazador i1(
+        .entrada(entrada),
+        .sel(sel),
+        .salida(salida)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+    end
+
+    always begin
+        #50
+        entrada=8'b11110101;
+        sel=2'b11;
+        #50
+        sel=2'b10;
+        #50
+        sel=2'b01;
+        #50
+        sel=2'b00;
+        
+    end
+endmodule
