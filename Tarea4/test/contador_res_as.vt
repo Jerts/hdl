@@ -1,0 +1,21 @@
+`timescale 10 ns/ 1 ns
+module contador_res_as_vlg_tst ();
+
+    reg res,clk; 
+
+    wire [7:0]salida;
+
+    contador_res_as i1(
+        .res(res),
+        .clk(clk),
+        .salida(salida)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b1;
+        res=1'b0;
+    end
+
+    always #1 clk=~clk;
+endmodule

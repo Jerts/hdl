@@ -1,0 +1,29 @@
+`timescale 1 ns/ 100 ps
+module FFD_reset_as_vlg_tst ();
+
+    reg d,reset,clk; 
+
+    wire q;
+
+    FFD_reset_as i1(
+        .d(d),
+        .reset(reset),
+        .clk(clk),
+        .q(q)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b1;
+        d=1'b0;
+        reset=1'b0;
+        #60
+        d=1'b1;
+        #70
+        reset=1'b1;
+        #30
+        reset=1'b0;
+    end
+
+    always #25 clk=~clk;
+endmodule
