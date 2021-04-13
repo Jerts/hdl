@@ -1,0 +1,44 @@
+`timescale 1 ns/ 100 ps
+module contador_completo_tst ();
+
+    reg res,clk,ce,dir,load; 
+    reg [3:0]data;
+    wire [3:0]salida;
+
+    contador_res_as_ce i1(
+        .res(res),
+        .clk(clk),
+        .ce(ce),
+        .dir(dir),
+        .load(load),
+        .data(data),
+        .salida(salida)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b1;
+        res=1'b0;
+        ce=1'b1;
+        dir=1'b1;
+        load=1'b0;
+        data=8'h00;
+        #18
+        load=1'b1;
+        data=8'h05;
+        #5
+        load=1'b0;
+        data=8'h00;
+        #74
+        dir=1'b0;
+        #60
+        res=1'b1;
+        #8
+        res=1'b0;
+        dir=1'b1;
+        #60
+        ce=1'b0;
+    end
+
+    always #10 clk=~clk;
+endmodule

@@ -1,4 +1,4 @@
-`timescale 10 ns/ 1 ns
+`timescale 1 ns/ 100 ps
 module contador_res_as_vlg_tst ();
 
     reg res,clk; 
@@ -15,7 +15,9 @@ module contador_res_as_vlg_tst ();
         $display("Corriendo Test Bench");
         clk=1'b1;
         res=1'b0;
+        #55
+        res=1'b1;
     end
 
-    always #1 clk=~clk;
+    always #10 clk=~clk;
 endmodule
