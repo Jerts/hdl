@@ -1,0 +1,29 @@
+`timescale 1 ns / 100 ps
+module FFT_vlg_tst ();
+
+    reg clk,t,reset;
+
+    wire q;
+
+    FFT i1(
+        .clk(clk),
+        .t(t),
+        .reset(reset),
+        .q(q)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b1;
+        t=1'b0;
+        reset=1'b1;
+        #17
+        reset=1'b0;
+        #10
+        t=1'b1;
+        #30
+        reset=1'b1; 
+    end
+
+    always #5 clk=~clk;
+endmodule
