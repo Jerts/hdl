@@ -12,9 +12,6 @@ module taskVerilog (
         suma(a,b,sal1);
         suma(c,d,sal2); 
         suma(e,f,sal3);    
-    end
-    
-
-    
+    end 
 
 endmodule

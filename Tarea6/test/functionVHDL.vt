@@ -1,0 +1,29 @@
+`timescale 1 ns / 100 ps
+module functionVHDL_vlg_tst ();
+
+    reg [3:0]a,b,c,d,e,f;
+    wire [3:0]sal1,sal2,sal3;
+
+    functionVHDL i1(
+        .a(a),
+        .b(b),
+        .c(c),
+        .d(d),
+        .e(e),
+        .f(f),
+        .sal1(sal1),
+        .sal2(sal2),
+        .sal3(sal3)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        a=4'b0111;
+        b=4'b0001;
+        c=4'b0001;
+        d=4'b0001;
+        e=4'b1000;
+        f=4'b0111;
+    end
+
+endmodule
