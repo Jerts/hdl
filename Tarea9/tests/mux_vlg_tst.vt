@@ -1,0 +1,27 @@
+`timescale 1 ns/ 100 ps
+module mux_vlg_tst ();
+
+    reg a1,b1,sel1; 
+
+    wire salida1;
+
+    muxEstructural i1(
+        .a1(a1),
+        .b1(b1),
+        .sel1(sel1),
+        .salida1(salida1)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+        sel1=1'b0;
+        b1=1'b1;
+        a1=1'b0;
+        #10
+        sel1=1'b1;
+        #10
+        sel1=1'b0;
+    end
+
+    always #2 a1=~a1;
+endmodule
