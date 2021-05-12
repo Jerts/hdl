@@ -9,7 +9,7 @@ module prueba_vlg_tst ();
         .a(a),
         .b(b),
         .c(c),
-        .dS(d),
+        .d(d),
         .clk(clk),
         .salida(salida)
     );
