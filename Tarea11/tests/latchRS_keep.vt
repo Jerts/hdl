@@ -1,0 +1,41 @@
+`timescale 1 ns / 100 ps
+module latchRS_keep_vlg_tst ();
+
+    reg R,CLK,S;
+    wire Q;
+
+    latchRS_keep i1(
+        .R(R),
+        .CLK(CLK),
+        .S(S),
+        .Q(Q)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        CLK=1'b0;
+        R=1'b0;
+        S=1'b0;
+
+        #7
+        R=1'b0;
+        S=1'b0;
+
+        #10
+        R=1'b0;
+        S=1'b0;
+
+        #10
+        R=1'b0;
+        S=1'b1;
+
+        #10
+        R=1'b0;
+        S=1'b0;
+
+        #10
+        R=1'b1;
+        S=1'b0;
+    end
+    always #5 CLK=~CLK;
+endmodule

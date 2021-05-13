@@ -1,0 +1,37 @@
+`timescale 1 ns / 100 ps
+module latchD_vlg_tst ();
+
+    reg D,CLK;
+    wire Q;
+
+    latchD i1(
+        .D(D),
+        .CLK(CLK),
+        .Q(Q)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        CLK=1'b0;
+        D=1'b0;
+
+        #14
+        D=1'b0;
+
+        #20
+        D=1'b1;
+        
+        #4
+        D=1'b0;
+        #4
+        D=1'b1;
+
+        #20
+        D=1'b0;
+
+        #20
+        D=1'b1;
+
+    end
+    always #10 CLK=~CLK;
+endmodule
