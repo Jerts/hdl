@@ -1,0 +1,35 @@
+`timescale 1 ns/ 100 ps
+module adderFF_vlg_tst ();
+
+    reg ci,clk;
+    reg signed [7:0] a,b;
+    wire co,ov;
+    wire signed [7:0] s;
+
+    adderFF i1(
+        .ci(ci),
+        .clk(clk),
+        .a(a),
+        .b(b),
+        .co(co),
+        .ov(ov),
+        .s(s)
+    );
+    
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b0;
+        ci=1'b0;
+        a=8'b10000000;
+        b=8'b10000000;
+        #20
+        a=8'b01111111;
+        b=8'b00000001;
+        #20
+        a=8'b11111111;
+        b=8'b11111111;
+ 
+    end
+
+    always #5 clk=~clk;
+endmodule
