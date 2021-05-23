@@ -1,0 +1,27 @@
+`timescale 1 ns / 100 ps
+module sum_mult_vlg_tst ();
+
+    reg [3:0]a,b,c,d;
+    reg clk;
+    wire [7:0]salida;
+
+    sum_mult2 i1(
+        .a(a),
+        .b(b),
+        .c(c),
+        .d(d),
+        .clk(clk),
+        .salida(salida)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b0;
+        a=4'b0111;
+        b=4'b0010;
+        c=4'b0001;
+        d=4'b0001;
+        
+    end
+    always #5 clk=~clk;
+endmodule
