@@ -1,0 +1,26 @@
+`timescale 1 ns / 100 ps
+module fsm_oh_vlg_tst ();
+
+    reg clk,w,reset;
+    wire s;
+
+    fsm_oh i1(
+        .clk(clk),
+        .w(w),
+        .reset(reset),
+        .s(s)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b0;
+        reset=1'b1;
+        w=1'b0;
+        #7
+        reset=1'b0;
+        #45
+        w=1'b1;
+        
+    end
+    always #5 clk=~clk;
+endmodule

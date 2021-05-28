@@ -1,0 +1,30 @@
+`timescale 1 ns / 100 ps
+module reg_solution_tst ();
+
+    reg clk,w,reset;
+    wire s;
+
+    reg_solution i1(
+        .clk(clk),
+        .w(w),
+        .reset(reset),
+        .s(s)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b0;
+        reset=1'b1;
+        w=1'b0;
+        #7
+        reset=1'b0;
+        #45
+        w=1'b1;
+        #35
+        reset=1'b1;
+        #2
+        reset=1'b0;
+        
+    end
+    always #5 clk=~clk;
+endmodule
