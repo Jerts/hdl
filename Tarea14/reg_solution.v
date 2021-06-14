@@ -8,18 +8,8 @@ module reg_solution (
             stack<=4'bxxxx;
         end
         else begin
-            case (w)
-                1'b0 : begin
-                    stack <= {stack[2:0],1'b0};
-                end
-                1'b1 : begin
-                    stack <= {stack[2:0],1'b1};
-                end 
-                default: stack <= 4'b0;
-            endcase        
-            
+            stack <= {stack[2:0],w};      
         end
-        
     end
     always @(stack) begin
         if ( stack==4'b0000 || stack==4'b1111 ) begin

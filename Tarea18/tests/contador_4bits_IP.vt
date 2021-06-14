@@ -1,0 +1,20 @@
+`timescale 1 ns / 100 ps
+module contador_4bits_IP_vlg_tst ();
+
+    reg clk, enable;
+    wire [3:0] salida;
+
+    contador_4bits_IP i1 (
+        .clk(clk),
+        .enable(enable),
+        .salida(salida)
+    );
+
+    initial begin
+        $display("Corriendo Test Bench");
+        clk=1'b0;
+        enable=1'b1;
+        
+    end
+    always #5 clk=~clk;
+endmodule
